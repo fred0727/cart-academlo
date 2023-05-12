@@ -4,23 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito de compras</title>
+    <link rel="shortcut icon" href="./assests/img/iconpage.png">
+    <title>Academlo Store</title>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assests/css/style.css" />
+    <script src="./assests/js/main.js" defer type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <!-- loader -->
-    <div class="loader loader--hidden">
+    <div id="inicio"></div>
+
+    <div class="loader">
       <div class="loader__container">
         <span></span>
       </div>
     </div>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
       <nav class="nav container">
         <a href="" class="nav__logo">
           <svg
@@ -41,15 +46,22 @@
 
           <ul class="nav__list">
             <li class="nav_items">
-              <a href="" class="nav__link">Inicio</a>
+              <a href="#inicio" class="nav__link">Inicio</a>
             </li>
             <li class="nav_items">
-              <a href="" class="nav__link">Productos</a>
+              <a href="#main" class="nav__link">Productos</a>
+            </li>
+            <li class="nav_items">
+              <a href="#nosotros" class="nav__link">Nosotros</a>
             </li>
           </ul>
         </div>
 
         <div class="nav__buttons">
+          <button type="button" class="nav__btn btn--dark">
+            <i class="bx bxs-moon">
+            </i>
+          </button>
           <button type="button" class="nav__btn btn--cart">
             <i class="bx bx-shopping-bag">
               <span class="notify">0</span>
@@ -62,28 +74,20 @@
       </nav>
     </header>
 
+    <!-- Front Page -->
+    <section id="frontpage" class="front-page">
+      <div>
+        <h1>Academlo Store</h1>
+        <p>Calidad, diseños unicos y al mejor precio.</p>
+      </div>
+      <div class="carrousel"></div>
+    </section>
+
     <!-- Main -->
-    <main class="main">
+    <main class="main" id="main">
       <section class="products section">
         <h2 class="products__title section--title">Productos</h2>
         <div class="products__container container">
-          <article class="product">
-            <div class="product__image">
-              <img
-                src="https://res.cloudinary.com/duu1imwxs/image/upload/v1677270464/eCommerce/shirt1_prckre.png"
-                alt=""
-                srcset=""
-              />
-            </div>
-            <div class="product__content">
-              <button type="button" class="product__btn add--to--cart">
-                <i class="bx bx-cart-add"></i>
-              </button>
-              <span class="product__price">$10</span>
-              <span class="product__stock">Disponibles: 3</span>
-              <h3 class="product__title">Camiseta de manga corta</h3>
-            </div>
-          </article>
         </div>
       </section>
     </main>
@@ -98,19 +102,23 @@
                 </button>
             </div>
             <div class="cart__body">
-                <div class="cart__empty">
-                    <i class="bx bx-cart"></i>
-                    <p>No hay productos e el carrito</p>
-                </div>
             </div>
             <div class="cart__footer">
                 <div class="cart__count">
-                    <span class="cart__count--text">Articulos</span>
+                    <span class="cart__count--text"><b>Articulos</b></span>
                     <span class="cart__count--item">0</span>
                 </div>
                 <div class="cart__count">
-                    <span class="cart__count--text">Total</span>
-                    <span class="cart__count--item">$0</span>
+                    <span class="cart__subtotal--text"><b>Subtotal</b></span>
+                    &nbsp;$&nbsp;<span class="cart__subtotal--item">0</span>
+                </div>
+                <div class="cart__count">
+                    <span class="cart__subtotal--text"><b>IGV</b></span>
+                    &nbsp;$&nbsp;<span class="cart__igv--item">0</span>
+                </div>
+                <div class="cart__count">
+                    <span class="cart__total--text"><b>Total</b></span>
+                    &nbsp;$&nbsp;<span class="cart__total--item">$0</span>
                 </div>
                 <button type="button" class="cart__btn btn--buy">Comprar</button>
             </div>
@@ -118,7 +126,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer section">
+    <footer class="footer section" id="nosotros">
       <div class="footer__container container">
         <div class="footer__top">
           <div class="footer__left">
@@ -151,5 +159,6 @@
         <div class="footer__bottom">Todos los derechos reservados</div>
       </div>
     </footer>
+    <div id="myModal" class="modal"></div>
   </body>
 </html>
